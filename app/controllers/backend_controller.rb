@@ -12,7 +12,10 @@ class BackendController < ApplicationController
 
 	private
 		def check_session
-			return !!session[:user_id]
+			if !session[:user_id]
+				flash.alert = "You must login to access this page"
+				redirect_to backend_path
+			end
 		end
 
 end
