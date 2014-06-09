@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   root 'frontend#index'
 
   resources :users
+  post '/authorise' => 'users#auth'
 
   get '/backend' => 'backend#login'
+  get '/backend/create' => 'backend#createUser'
+  get '/backend/index' => 'backend#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

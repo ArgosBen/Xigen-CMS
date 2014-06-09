@@ -1,0 +1,17 @@
+<h1>Listing Articles</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+ 
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= link_to article.text, controller: 'articles', action: 'show', id: article.id %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to 'Edit', controller: 'articles', action: 'edit', id: article.id %></td>
+      <td><%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+</table>

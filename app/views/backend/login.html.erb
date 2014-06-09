@@ -1,6 +1,10 @@
 <h1>Login</h1>
 
-<%= form_for :user, url: users_path do |f| %>
+<% if flash[:alert] %>
+	<strong><%= flash[:alert] %></strong>
+<% end %>
+
+<%= form_for :user, url: authorise_path do |f| %>
 
 	<%= f.label :email %>:
 	<%= f.text_field :email %><br/>
@@ -8,6 +12,6 @@
 	<%= f.label :password %>:
 	<%= f.password_field :password %><br/>
 
-	<%= f.submit "Create user" %>
+	<%= f.submit "Login" %>
 
 <% end %>
